@@ -27,6 +27,13 @@
       if (user) location.href = "dashboard.html";
     });
   </script>
+  <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sopra/service-worker.js")
+    .then(() => console.log("Service Worker enregistré"))
+    .catch(err => console.error("Erreur SW", err));
+}
+</script>
 
 </body>
 </html>
