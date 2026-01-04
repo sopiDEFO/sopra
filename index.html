@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" href="icons/icon-192.png" type="icons">
-  
+
   <link rel="shortcut icon" href="icons/icon-192.png" type="icons">
   <title>Sopi</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- OBLIGATOIRE POUR LE PWA -->
+  <link rel="manifest" href="/sopra/manifest.json">
 </head>
 
 <body>
@@ -28,13 +30,14 @@
       if (user) location.href = "dashboard.html";
     });
   </script>
+
   <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sopra/service-worker.js")
-    .then(() => console.log("Service Worker enregistré"))
-    .catch(err => console.error("Erreur SW", err));
-}
-</script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sopra/service-worker.js")
+      .then(() => console.log("Service Worker enregistré"))
+      .catch(err => console.error("Erreur SW", err));
+  }
+  </script>
 
 </body>
 </html>
