@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sopi - Connexion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="auth-container">
+    <h1>Connexion</h1>
+
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Mot de passe">
+    <div id="errorBox" class="error-box"></div>
+<div id="successBox" class="success-box"></div>
+
+    <button id="loginBtn">Se connecter</button>
+    <div class="link" id="forgotPasswordLink">Mot de passe oublié ?</div>
+
+
+
+    <div class="link" onclick="location.href='register.html'">Créer un compte</div>
+  </div>
+
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="app-login.js"></script>
+  
+  <div id="resetPopup" class="popup">
+  <div class="popup-content">
+    <h3>Réinitialiser le mot de passe</h3>
+
+    <input id="resetEmail" type="email" placeholder="Votre email">
+
+    <div id="resetError" class="error-box"></div>
+    <div id="resetSuccess" class="success-box"></div>
+
+    <button id="resetBtn">Envoyer le lien</button>
+    <button id="closePopup" class="secondary-btn">Fermer</button>
+  </div>
+</div>
+
+</body>
+</html>

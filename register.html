@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sopi - Créer un compte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="auth-container">
+    <h1>Créer un compte</h1>
+
+    <input id="firstname" type="text" placeholder="Prénom">
+    <input id="lastname" type="text" placeholder="Nom">
+    <input id="email" type="email" placeholder="Adresse email">
+    <input id="phone" type="tel" placeholder="Téléphone" maxlength="10">
+
+    <label>Date de naissance</label>
+    <input id="birthdate" type="date">
+    <div id="ageDisplay"></div>
+
+    <select id="gender">
+      <option value="">Genre</option>
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <input id="password" type="password" placeholder="Mot de passe">
+    <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe">
+
+    <label><input type="checkbox" id="terms"> J’accepte les conditions</label>
+    <div id="errorBox" class="error-box"></div>
+    <div id="successBox" class="success-box"></div>
+
+    <button id="registerBtn">Créer un compte</button>
+
+    <div class="link" onclick="location.href='login.html'">Déjà un compte ? Se connecter</div>
+  </div>
+
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="app-register.js"></script>
+
+</body>
+</html>

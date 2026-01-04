@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="shortcut icon" href="icons/icon-192.png" type="icons">
+  <title>Sopi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="auth-container">
+    <h1>Bienvenue sur Sopi</h1>
+
+    <button onclick="location.href='login.html'">Se connecter</button>
+    <button class="secondary-btn" onclick="location.href='register.html'">Créer un compte</button>
+  </div>
+
+  <script type="module">
+    import "./firebase-init.js";
+    import { onAuthStateChanged } 
+    from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+    onAuthStateChanged(window.auth, (user) => {
+      if (user) location.href = "dashboard.html";
+    });
+  </script>
+
+</body>
+</html>

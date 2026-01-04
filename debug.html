@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { 
+            padding: 10px 20px; 
+            margin: 10px; 
+            background: blue; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+        }
+        #username { display: none; padding: 10px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test de boutons</h1>
+    
+    <input id="email" placeholder="Email">
+    <input id="password" placeholder="Password">
+    <input id="username" placeholder="Username">
+    
+    <button id="loginBtn">Connexion</button>
+    <button id="registerBtn">Inscription</button>
+    
+    <div id="toggleAuth">
+        <span>Pas de compte ? <a href="#" id="showRegister">S'inscrire</a></span>
+    </div>
+    
+    <script>
+        console.log('🚀 Debug page chargée !');
+        
+        let isRegisterMode = false;
+        
+        function toggleAuthMode() {
+            isRegisterMode = !isRegisterMode;
+            console.log('🔄 Toggle appelé, mode:', isRegisterMode);
+            
+            const usernameInput = document.getElementById('username');
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const toggleAuth = document.getElementById('toggleAuth');
+            
+            if (isRegisterMode) {
+                usernameInput.style.display = 'block';
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'block';
+                toggleAuth.innerHTML = '<span>Déjà un compte ? <a href="#" id="showRegister">Se connecter</a></span>';
+            } else {
+                usernameInput.style.display = 'none';
+                loginBtn.style.display = 'block';
+                registerBtn.style.display = 'none';
+                toggleAuth.innerHTML = '<span>Pas de compte ? <a href="#" id="showRegister">S\'inscrire</a></span>';
+            }
+            
+            // Ré-attacher l'événement
+            setTimeout(() => {
+                const newLink = document.getElementById('showRegister');
+                if (newLink) {
+                    newLink.onclick = function(e) {
+                        console.log('🖱️ NOUVEAU lien cliqué !');
+                        e.preventDefault();
+                        toggleAuthMode();
+                    };
+                }
+            }, 50);
+        }
+        
+        // Test des boutons
+        document.getElementById('loginBtn').onclick = function() {
+            console.log('🔐 Bouton connexion cliqué !');
+            alert('Bouton connexion cliqué !');
+        };
+        
+        document.getElementById('registerBtn').onclick = function() {
+            console.log('📝 Bouton inscription cliqué !');
+            alert('Bouton inscription cliqué !');
+        };
+        
+        document.getElementById('showRegister').onclick = function(e) {
+            console.log('🖱️ Lien S\'inscrire cliqué !');
+            e.preventDefault();
+            toggleAuthMode();
+        };
+        
+        // Test global
+        document.addEventListener('click', function(e) {
+            console.log('🖱️ Clic détecté sur:', e.target.tagName, e.target.textContent);
+        });
+        
+        console.log('✅ Debug initialisé');
+    </script>
+</body>
+</html>

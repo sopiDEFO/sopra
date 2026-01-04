@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sopi - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="dashboard">
+
+  <div class="auth-container">
+    <h1>Dashboard</h1>
+
+    <div id="errorBox" class="error-box"></div>
+    <div id="successBox" class="success-box"></div>
+
+    <p id="welcomeText"></p>
+
+    <div class="profile-card">
+      <h3>Actions rapides</h3>
+      <button onclick="location.href='profile.html'">Voir mon profil</button>
+    </div>
+  </div>
+
+  <!-- NAV MOBILE -->
+  <div class="bottom-nav mobile-only">
+    <div class="nav-item" data-page="dashboard" onclick="location.href='dashboard.html'">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21H3z"/></svg>
+      Accueil
+    </div>
+
+    <div class="nav-item" data-page="profile" onclick="location.href='profile.html'">
+      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+      Profil
+    </div>
+
+    <div class="nav-item" data-page="logout" id="logoutBtnMobile">
+      <svg viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3h9z"/></svg>
+      Sortie
+    </div>
+  </div>
+
+  <!-- NAV DESKTOP -->
+  <div class="sidebar desktop-only">
+    <div class="sidebar-item" data-page="dashboard" onclick="location.href='dashboard.html'">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21H3z"/></svg>
+      <span>Accueil</span>
+    </div>
+
+    <div class="sidebar-item" data-page="profile" onclick="location.href='profile.html'">
+      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+      <span>Profil</span>
+    </div>
+
+    <div class="sidebar-item" data-page="logout" id="logoutBtnDesktop">
+      <svg viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 5 5-3z"/></svg>
+      <span>Déconnexion</span>
+    </div>
+  </div>
+
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="app-dashboard.js"></script>
+
+  <!-- script pour activer le bon bouton -->
+  <script>
+    const current = document.body.getAttribute("data-page");
+    document.querySelectorAll("[data-page]").forEach(item => {
+      if (item.dataset.page === current) {
+        item.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
