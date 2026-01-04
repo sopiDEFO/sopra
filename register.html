@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sopi - Créer un compte</title>
+  <link rel="shortcut icon" href="icons/icon-192.png" type="icons">
+  <link rel="manifest" href="/sopra/manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,7 +41,11 @@
 
     <div class="link" onclick="location.href='login.html'">Déjà un compte ? Se connecter</div>
   </div>
-
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sopra/service-worker.js");
+}
+</script>
   <script type="module" src="firebase-init.js"></script>
   <script type="module" src="app-register.js"></script>
 
