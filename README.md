@@ -90,5 +90,4 @@ Pour déployer cette PWA:
 3. Testez l'installation et les fonctionnalités offline
 
 ## Licence
-
-Projet libre d'utilisation et de modification.
+confidentiel
